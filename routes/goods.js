@@ -42,4 +42,11 @@ router.get("/goods", (req, res) => {
   res.json({ goods: goods });
 });
 
+// 상품 상세 조회 api
+router.get("/goods/:goodsId", (req, res) => {
+  const { goodsId } = req.params;
+  const targetItem = goods.find((item) => item.goodsId === Number(goodsId));
+  res.json({ detail: targetItem });
+});
+
 module.exports = router;
